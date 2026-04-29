@@ -1,6 +1,6 @@
 clc;
 clear;
-fullpath = 'C:\Users\rakyn\OneDrive\Desktop\TERM6\MISP_LAB\EOG_sig.mat';
+fullpath = 'E:\6th Semester\MISP Lab\MyLab\LAB1\Lab 1_data\EOG_sig.mat';
 load(fullpath)
 size(Sig(1,:));
 

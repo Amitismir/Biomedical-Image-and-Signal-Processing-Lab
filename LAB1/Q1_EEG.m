@@ -1,6 +1,6 @@
 clc;
 clear;
-fullpath = "C:\Users\rakyn\OneDrive\Desktop\TERM6\MISP_LAB\LAB1\EEG_sig.mat";
+fullpath = "E:\6th Semester\MISP Lab\MyLab\LAB1\Lab 1_data\EEG_sig.mat";
 load(fullpath)
 %%
 %Q1
@@ -242,7 +242,7 @@ ch5_p2=ch5_data(30*fs+1:35*fs);
 
 ch5_data_filtered = filtfilt(b, a, ch5_p2);  % filtfilt = zero-phase filtering
 time_p2 = (30*fs+1 : 35*fs) / fs;
-
+%%
 % Plot original vs filtered signal
 figure('Position', [100, 100, 1400, 800]);
 
@@ -263,6 +263,8 @@ xlim([29,36]);
 grid on;
 
 sgtitle('Effect of Lowpass Filter on EEG Signal');
+%%
+figure;
 
 fft_signal3=fft(ch5_data_filtered);
 N=length(fft_signal3);
@@ -290,10 +292,11 @@ title('DFT of Original EEG Signal');
 grid on;
 [S, F, T] = spectrogram(ch5_data_filtered, window, n_Overlap, n_fft,fc*2);
 [S0,F0,T0]=spectrogram(ch5_p2, window, n_Overlap, n_fft, fs);
-
+%%
+ figure;
  subplot(2,1,1);
  imagesc(T, F, 10*log10(abs(S)));
-axis xy;
+ axis xy;
  xlabel('Time (s)');
  ylabel('Frequency (Hz)');
  title('STFT of Downsampled EEG Signal');
